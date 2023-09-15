@@ -1,4 +1,4 @@
-#include <cctype>
+#include <algorithm>
 #pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
@@ -15,25 +15,16 @@ template<typename T> using pbds =
 tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
 int main(){
-   
-  //first
-     string s ;
-  //second
-  string z ; 
-  cin >> s ;
-  cin >> z;
-
-  // Convert s and z to lowercase
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
-    transform(z.begin(), z.end(), z.begin(), ::tolower);
-  if(s == z){
-    cout << "0" << endl;
-  }else if(s > z){
-    cout << "1" <<endl;
+      string real ; cin >> real;
+     string rev ; cin >> rev;
+    
+    string t ;
+  reverse(real.begin() , real.end());
+  if( real == rev){
+    cout << "YES" ;
   }else{
-    cout << "-1" <<endl;
+    cout << "NO";
   }
 
  return 0;
-
 }

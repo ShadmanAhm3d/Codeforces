@@ -15,25 +15,9 @@ template<typename T> using pbds =
 tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update>;
 
 int main(){
-   
-  //first
-     string s ;
-  //second
-  string z ; 
-  cin >> s ;
-  cin >> z;
+      string s ; cin >>s;
+      s[0]= toupper(s[0]);
 
-  // Convert s and z to lowercase
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
-    transform(z.begin(), z.end(), z.begin(), ::tolower);
-  if(s == z){
-    cout << "0" << endl;
-  }else if(s > z){
-    cout << "1" <<endl;
-  }else{
-    cout << "-1" <<endl;
-  }
-
+  cout <<s ;
  return 0;
-
 }
