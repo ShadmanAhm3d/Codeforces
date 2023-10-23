@@ -1,0 +1,16 @@
+15
+push 5
+front
+back
+push 6
+front
+back
+push 3
+front
+back
+pop
+front
+back
+pop
+front
+back

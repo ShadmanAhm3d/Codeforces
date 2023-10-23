@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+ 
 using namespace std;
-
+ 
 int main() {
     string s;
     cin >> s;
@@ -14,24 +14,24 @@ int main() {
     for (char c : s) {
         freq[c - 'A']++;
     }
-
+ 
     int oddCount = 0;
     char oddChar = ' ';
     string firstHalf = "";
     string secondHalf = "";
-
+ 
     for (int i = 0; i < 26; i++) {
         if (freq[i] % 2 == 1) {
             oddCount++;
             oddChar = char('A' + i);
         }
-
+ 
         // Create the first half of the palindrome
         for (int j = 0; j < freq[i] / 2; j++) {
             firstHalf += char('A' + i);
         }
     }
-
+ 
     // If there is more than one character with an odd frequency, it's impossible to create a palindrome
     if (oddCount > 1) {
         cout << "NO SOLUTION" << endl;
@@ -44,7 +44,6 @@ int main() {
             cout << firstHalf << secondHalf << endl;
         }
     }
-
+ 
     return 0;
 }
-
