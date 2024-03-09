@@ -1,46 +1,60 @@
-#include <iostream>
+#include <algorithm>
 #include <vector>
+#pragma GCC optimize("O3")
+#include <bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+#define mod 1000000007
+#define endl '\n'
+#define ll  long long
+#define pb push_back
 using namespace std;
 
-// Define a type alias for long long integers
-typedef long long ll;
+int main(){
 
-int main() {
-    // Input the value of n
-    int n;
-    cin >> n;
+  int tc ; cin >> tc;
+  while(tc--){
+        ll n ;
+        cin >> n;
+        vector<ll>pos[n+1];
 
-    // Array to store answers
-    ll ans[n + 1];
-
-    // Vector array to store positions
-    vector<ll> pos[n + 1];
-
-    // Temporary variable to store input values
-    ll j;
-
-    // Outer loop to iterate m times
-    int m = n;
-    for (; m > 0; m--) {
-        // Inner loop to read n - 1 values
-        for (int i = 1; i <= n - 1; i++) {
-            // Input the value
-            cin >> j;
-
-            // Store the position
-            pos[j].push_back(i);
+        ll j ;
+        ll m = n;
+        for(;m--;){
+        for(ll i=1 ; i<=n-1 ; i++){
+                cin >> j;
+                pos[j].push_back(i);
+            }
         }
+
+        for(ll i=1 ; i<=n ; i++){
+            sort(pos[i].begin(),pos[i].end());
+        }
+        vector<ll>ans(n+1);
+
+        for(ll i=1 ; i<=n ;i++){
+            if(pos[i][n-2]==n-1){
+                if(pos[i][0]==n-1){
+                    ans[n] = i;
+                }else{
+                    ans[n-1] = i;
+                }
+            }else{
+                ans[pos[i][n-2]] = i;
+            }
+        }
+
+        
+       for(ll i=1; i<=n; i++){
+
+            cout<<ans[i]<<" ";
+
+        }
+
+        cout<<"\n";
+
     }
 
-    // Output the positions stored
-    for (int i = 1; i <= n; i++) {
-        cout << "Positions for " << i << ": ";
-        for (int j = 0; j < pos[i].size(); j++) {
-            cout << pos[i][j] << " ";
-        }
-        cout << endl;
-    }
 
-    return 0;
+ return 0;
 }
-
