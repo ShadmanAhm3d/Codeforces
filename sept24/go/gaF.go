@@ -1,7 +1,5 @@
-package main
 
-import (
-	"fmt"
+import ( "fmt"
 )
 
 func solve(){
@@ -29,7 +27,7 @@ func solve(){
 
 }
 
-func main(){
+func gaf(){
   var t int
   fmt.Scan(&t);
 
